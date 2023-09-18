@@ -7,7 +7,7 @@ export const deleteTicket = id => ({
 
 export const toggleForm = () => ({
   type: c.TOGGLE_FORM
-})
+});
 
 export const addTicket = (ticket) => {
   const { names, location, issue, id, formattedWaitTime, timeOpen } = ticket;
@@ -19,15 +19,6 @@ export const addTicket = (ticket) => {
     id: id,
     formattedWaitTime,
     timeOpen: timeOpen
-  }
-}
-
-export const updateTicketIssue = (values) => {
-  const {issue, id} = values;
-  return {
-    type: c.UPDATE_TICKET_ISSUE,
-    issue: issue,
-    id: id
   }
 }
 

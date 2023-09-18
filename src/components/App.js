@@ -3,7 +3,7 @@ import Header from "./Header";
 import TicketControl from "./TicketControl";
 
 function App(){
-  return (
+  return ( 
     <React.Fragment>
       <Header />
       <TicketControl />

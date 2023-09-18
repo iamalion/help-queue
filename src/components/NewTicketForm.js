@@ -1,28 +1,30 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { v4 } from 'uuid';
-import ReusableForm from "./ReusableForm";
 
-function NewTicketForm(props){
-  
-  function handleNewTicketFormSubmission(event) {
-    event.preventDefault();
-    props.onNewTicketCreation({
-      names: event.target.names.value, 
-      location: event.target.location.value, 
-      issue: event.target.issue.value, id: v4()
-    });
-  }
+function ReusableForm(props) {
   return (
     <React.Fragment>
-      <ReusableForm 
-        formSubmissionHandler={handleNewTicketFormSubmission}
-        buttonText="Help!" />
+      <form onSubmit={props.formSubmissionHandler}>
+        <input
+          type='text'
+          name='names'
+          placeholder='Pair Names' />
+        <input
+          type='text'
+          name='location'
+          placeholder='Location' />
+        <textarea
+          name='issue'
+          placeholder='Describe your issue.' />
+        <button type='submit'>{props.buttonText}</button>
+      </form>
     </React.Fragment>
   );
 }
-NewTicketForm.propTypes = {
-  onNewTicketCreation: PropTypes.func
+
+ReusableForm.propTypes = {
+  formSubmissionHandler: PropTypes.func,
+  buttonText: PropTypes.string
 };
 
-export default NewTicketForm;
+export default ReusableForm;
